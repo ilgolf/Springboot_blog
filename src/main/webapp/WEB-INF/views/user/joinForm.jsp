@@ -1,32 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 
-<%@ include file="layout/header.jsp" %>
+<%@ include file="../layout/header.jsp" %>
 
 <div class="container">
-    <div class="card m-2">
-        <div class="card-body">
-            <h4 class="card-title">제목적는 부분</h4>
-            <p class="card-text">내용 적는 부분</p>
-            <a href="#" class="btn btn-primary">상세 보기</a>
+    <form action="/action_page.php">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="username" class="form-control" placeholder="Enter Username" id="username">
         </div>
-    </div>
-    <div class="card m-2">
-        <div class="card-body">
-            <h4 class="card-title">제목적는 부분</h4>
-            <p class="card-text">내용 적는 부분</p>
-            <a href="#" class="btn btn-primary">상세 보기</a>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" placeholder="Enter password" id="password">
         </div>
-    </div>
-    <div class="card m-2">
-        <div class="card-body">
-            <h4 class="card-title">제목적는 부분</h4>
-            <p class="card-text">내용 적는 부분</p>
-            <a href="#" class="btn btn-primary">상세 보기</a>
+
+        <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" placeholder="Enter email" id="email">
         </div>
-    </div>
+    </form>
+    <button id="btn-save" class="btn btn-primary">Join now</button>
 </div>
 
-<%@ include file="layout/footer.jsp" %>
+<script src="/js/user.js"></script>
+<%@ include file="../layout/footer.jsp" %>
 
 
