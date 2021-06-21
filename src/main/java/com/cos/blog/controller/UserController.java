@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class UserController {
 
+    // 뷰의 요청 경로 지정 GET 방식(가져오는 방식)
     @GetMapping("/auth/joinForm")
     public String joinForm() {
         return "user/joinForm";
@@ -18,5 +19,10 @@ public class UserController {
     @GetMapping("/auth/loginForm")
     public String loginForm() {
         return "user/loginForm";
+    }
+
+    @GetMapping("/user/updateForm")
+    public String updateForm() {
+        return "user/updateForm";
     }
 }

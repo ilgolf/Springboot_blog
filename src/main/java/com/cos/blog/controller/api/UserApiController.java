@@ -7,9 +7,7 @@ import com.cos.blog.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -25,5 +23,11 @@ public class UserApiController {
         System.out.println("UserApiController : save호출됨");
         userService.join(user);
         return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+    }
+
+    @PutMapping("/user")
+    public  ResponseDto<Integer> update(@RequestBody User user) { //
+        userService.userModify(user);
+        return new ResponseDto<>(HttpStatus.OK.value(), 1);
     }
 }
