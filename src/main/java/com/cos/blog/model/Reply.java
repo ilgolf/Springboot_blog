@@ -1,6 +1,5 @@
 package com.cos.blog.model;
 
-import com.cos.blog.dto.ReplySaveRequestDto;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -8,7 +7,6 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

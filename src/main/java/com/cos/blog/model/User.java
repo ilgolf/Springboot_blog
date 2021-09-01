@@ -8,7 +8,6 @@ import java.sql.Timestamp;
 
 
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -39,4 +38,16 @@ public class User {
 
     @CreationTimestamp // 시간이 자동 입력
     private Timestamp createDate;
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setRole(RoleType role) {
+        this.role = role;
+    }
 }

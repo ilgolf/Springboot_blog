@@ -11,7 +11,6 @@ import java.util.List;
 
 
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -42,4 +41,20 @@ public class Board {
 
     @CreationTimestamp
     private Timestamp createDate;
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
