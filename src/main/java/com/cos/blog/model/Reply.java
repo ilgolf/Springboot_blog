@@ -1,5 +1,6 @@
 package com.cos.blog.model;
 
+import com.cos.blog.dto.ReplySaveRequestDto;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -30,4 +31,15 @@ public class Reply {
 
     @CreationTimestamp
     private Timestamp createDate;
+
+    @Override
+    public String toString() {
+        return "Reply{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                ", board=" + board +
+                ", user=" + user +
+                ", createDate=" + createDate +
+                '}';
+    }
 }

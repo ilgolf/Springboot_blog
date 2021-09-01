@@ -28,9 +28,6 @@ public class DummyControllerTest {
     @Transactional
     @PutMapping("/dummy/user/{id}")
     public User updateUser(@PathVariable int id,@RequestBody User requestUser) {
-        System.out.println("id : " + id);
-        System.out.println("password : " + requestUser.getPassword());
-        System.out.println("email : " + requestUser.getEmail());
 
         User user = userRepository.findById(id).orElseThrow(() -> {
            return new IllegalArgumentException("수정에 실패횄습니다.");

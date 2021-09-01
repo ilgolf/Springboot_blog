@@ -1,8 +1,12 @@
 package com.cos.blog.service;
 
+import com.cos.blog.dto.ReplySaveRequestDto;
 import com.cos.blog.model.Board;
+import com.cos.blog.model.Reply;
 import com.cos.blog.model.User;
 import com.cos.blog.repository.BoardRepository;
+import com.cos.blog.repository.ReplyRepository;
+import com.cos.blog.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,6 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 public class BoardService {
+
+    private final ReplyRepository replyRepository;
 
     private final BoardRepository boardRepository;
 
@@ -50,5 +56,11 @@ public class BoardService {
         board.setTitle(requestBoard.getTitle());
         board.setContent(requestBoard.getContent());
         // 해당 함수로 종료시(Service가 종료될 때) 트랜잭션 종료. 이때 더티채킹-자동 업데이트가 db flush
+    }
+
+    @Transactional
+    public void writeReply(ReplySaveRequestDto replySaveRequestDto) {
+        replyRepository.mSave(replySaveRequestDto.getUserId(), replySaveRequestDto.getBoardId(),
+                replySaveRequestDto.getContent());
     }
 }

@@ -1,5 +1,6 @@
 package com.cos.blog.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
@@ -30,6 +31,8 @@ public class Board {
     private int count; // 조회수
 
     @OneToMany(mappedBy = "board", fetch = FetchType.EAGER) // mappedBy 연관관계의 주인이 아니니(FK가아님) DB에 컬럼을 만들면 안댐
+    @JsonIgnoreProperties({"board", "user"})
+    @OrderBy("id desc")
     private List<Reply> reply;
 
 

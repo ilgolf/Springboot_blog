@@ -5,37 +5,38 @@ import lombok.Setter;
 
 @Getter
 @Setter
-class KakaoInfo {
-    private Integer id;
-    private String connected_at;
-    private Properties properties;
-    private KakaoAccount kakao_account;
+public class KakaoProfile {
+    public Integer id;
+    public String connected_at;
+    public Properties properties;
+    public KakaoAccount kakao_account;
 
     @Getter
     @Setter
-    private class Properties {
-        private String nickname;
-        private String profile_image;
-        private String thumbnail_image;
+    public class Properties {
+        public String nickname;
+        public String profile_image;
+        public String thumbnail_image;
     }
 
     @Getter
     @Setter
-    private class KakaoAccount {
-        private Boolean profile_needs_agreement;
-        private Profile profile;
-        private Boolean has_email;
-        private Boolean email_needs_agreement;
-        private Boolean is_email_valid;
-        private Boolean is_email_verified;
-        private String email;
+    public class KakaoAccount {
+        public Boolean profile_needs_agreement;
+        public Profile profile;
+        public Boolean has_email;
+        public Boolean email_needs_agreement;
+        public Boolean is_email_valid;
+        public Boolean is_email_verified;
+        public String email;
 
         @Getter
         @Setter
-        private class Profile {
-            private String nickname;
-            private String thumbnail_image_url;
-            private String profile_image_url;
+        public class Profile {
+            public String nickname;
+            public String thumbnail_image_url;
+            public String is_default_image;
+            public String profile_image_url;
         }
     }
 }

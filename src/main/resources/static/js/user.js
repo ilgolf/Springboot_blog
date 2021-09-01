@@ -1,9 +1,9 @@
 let index = {
     init: function () {
-        $("#btn-save").on("click", ()=>{ // function(){} => {} this를 바인딩하기 위해
+        $("#btn-save").on("click", ()=>{
             this.save();
         });
-        $("#btn-update").on("click", ()=>{ // function(){} => {} this를 바인딩하기 위해
+        $("#btn-update").on("click", ()=>{
             this.update();
         });
     },
@@ -35,6 +35,7 @@ let index = {
         // alert('user의 save함수 호출됨')
         let data = {
             id: $("#id").val(),
+            username : $("#username").val(),
             password: $("#password").val(),
             email: $("#email").val()
         };
