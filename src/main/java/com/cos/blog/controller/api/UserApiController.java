@@ -24,14 +24,13 @@ import javax.servlet.http.HttpSession;
 public class UserApiController {
 
     private final UserService userService;
-
     private final AuthenticationManager authenticationManager;
 
     @PostMapping("/auth/joinProc")
     public ResponseDto<Integer> save(@RequestBody User user) {
         System.out.println("UserApiController : save호출됨");
         userService.join(user);
-        return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+        return new ResponseDto<>(HttpStatus.OK.value(), 1);
     }
 
     @PutMapping("/user")

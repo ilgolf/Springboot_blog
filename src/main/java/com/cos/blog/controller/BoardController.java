@@ -21,7 +21,7 @@ public class BoardController {
     public String index(Model model, @PageableDefault(size=3, sort="id", direction = Sort.Direction.DESC) Pageable pageable) {
 
         // Model 객체를 이용해서, view로 DATA 전달
-        model.addAttribute("boards", boardService.writelist(pageable));
+        model.addAttribute("boards", boardService.writeList(pageable));
         return "index"; // 뷰 파일 리턴
     }
 

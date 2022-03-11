@@ -2,11 +2,9 @@ package com.cos.blog.service;
 
 import com.cos.blog.dto.ReplySaveRequestDto;
 import com.cos.blog.model.Board;
-import com.cos.blog.model.Reply;
 import com.cos.blog.model.User;
 import com.cos.blog.repository.BoardRepository;
 import com.cos.blog.repository.ReplyRepository;
-import com.cos.blog.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,7 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class BoardService {
 
     private final ReplyRepository replyRepository;
-
     private final BoardRepository boardRepository;
 
     @Transactional
@@ -30,16 +27,14 @@ public class BoardService {
     }
 
     @Transactional(readOnly = true)
-    public Page<Board> writelist(Pageable pageable) {
+    public Page<Board> writeList(Pageable pageable) {
         return boardRepository.findAll(pageable);
     }
 
     @Transactional(readOnly = true)
     public Board view_post(int id) {
         return boardRepository.findById(id)
-                .orElseThrow(() -> {
-                    return new IllegalArgumentException("글 상세보기 실패 : 아이디를 찾을 수 없습니다.");
-                });
+                .orElseThrow(() -> new IllegalArgumentException("글 상세보기 실패 : 아이디를 찾을 수 없습니다."));
     }
 
     @Transactional
